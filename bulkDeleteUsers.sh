@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # A little script to bulk delete a list of users in OJS.
-# Useful once you've identified a list of spam users.
+# Useful once you've identified a list of spam usernames.
 
 # the user to merge all accounts into
-username='username'
+username='OJSUSER'
 
 # the list of users to delete
 users=(
@@ -18,7 +18,6 @@ listlen=${#users[*]}
 echo "Beginning removal of $listlen users."
 
 for ((i=0; i<$listlen; i++)); do
-    echo "Deleting user: ${users[i]}"
+    echo "Removing user: ${users[i]}"
     php tools/mergeUsers.php "$username" "${users[i]}"
-    echo "User ${users[i]} successfully deleted."
 done
